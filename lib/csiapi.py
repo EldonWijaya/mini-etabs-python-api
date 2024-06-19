@@ -30,6 +30,7 @@ class database_tables:
         table = pd.read_csv(self.csv_file_path)
         # os.remove(csv_file_path)
         return table
-    def set_table_edit(self):
+    def set_table_edit(self, table):
+        table.to_csv(self.csv_file_path)
         ret = self.SapModel.DatabaseTables.SetTableForEditingCSVFile(self.TableKey, -1, self.csv_file_path)
         return ret
